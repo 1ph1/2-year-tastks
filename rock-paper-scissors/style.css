@@ -44,6 +44,21 @@ a {
 
 .settings {
   display: none;
+  position: absolute;
+  background-color: rgb(137, 150, 150);
+  width: 50vw;
+  height: 60vh; 
+  padding: 30px;
+  z-index: 3;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vw;
+  z-index: 2;
+  background-color: rgb(91, 97, 97);
+  position: absolute;
+  display: none;
 }
 
 .button_settings_open {
