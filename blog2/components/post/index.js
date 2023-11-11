@@ -1,23 +1,23 @@
 export class PostComponent {
     constructor(parent){
         this.parent = parent
+        this.txt = "Закрыть"
     }
 
-    getHTML(){
+    getHTML(data){
         return (
             `   <div id="post-page" class="post">
-                    <h1 class="post_header">НАЗВАНИЕ</h1>
-                    <p class="post_text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus sunt, non repudiandae obcaecati corrupti iusto nisi nesciunt. Doloremque dolor fugiat pariatur autem nesciunt vitae quam, quis perspiciatis obcaecati, laudantium earum.</p>
-                    <p class="post_author">Автор</p>
+                    <h1 class="post_header">${data.title}</h1>
+                    <p class="post_text">${data.text}</p>
+                    <p class="post_author">${data.author}</p>
                     <button class="post_button">Подробнее...</button>
                 <div/>
             `
         )
     }
 
-    render() {
-        console.log(this.parent)
-        const html = this.getHTML()
+    render(data) {
+        const html = this.getHTML(data)
         this.parent.insertAdjacentHTML('beforeend', html)
     }
 }
