@@ -1,14 +1,13 @@
 export class PostComponent {
     constructor(parent){
         this.parent = parent
-        this.txt = "Закрыть"
     }
 
     getHTML(data){
         return (
             `   <div id="post-page" class="post">
-                    <h1 class="post_header">${data.title}</h1>
-                    <p class="post_text">${data.text}</p>
+                    <h1 class="post_header">${data.title.slice(0, 10) + '...'}</h1>
+                    <p class="post_text">${data.text.slice(0, 80) + '...'}</p>
                     <p class="post_author">${data.author}</p>
                     <button class="post_button">Подробнее...</button>
                 <div/>

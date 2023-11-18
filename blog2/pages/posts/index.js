@@ -11,33 +11,42 @@ export class PostPage{
     }
 
     open() {
-        return this.modalHTML.style.display = 'block'
+        fetch('https://jsonplaceholder.typicode.com/posts')
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                let data_id = data[Math.floor(Math.random() * data.length)]
+                let post_data = {
+                    "author": data_id["id"],
+                    "title": data_id["title"],
+                    "text": data_id["body"]
+                };
+                console.log(data_id)
+                const post = new PostComponent(this.parent)
+                post.render(post_data)
+            });
         
     }
 
     close(){
+        fetch('https://jsonplaceholder.typicode.com/posts')
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                this.post_data = data[Math.floor(Math.random() * 100)];
+                console.log(this.post_data)
+            });
+        const post = new PostComponent(this.parent)
+        post.render(post_data)
         return this.modalHTML.style.display = "none"
     }
 
-    getData(){
-        return {
-            "title": "НАЗВАНИЕ",
-            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus sunt, non repudiandae obcaecati corrupti iusto nisi nesciunt. Doloremque dolor fugiat pariatur autem nesciunt vitae quam, quis perspiciatis obcaecati, laudantium earum.",
-            "author": "Автор"
-        }
-    }
-
     render() {
-        const post = new PostComponent(this.parent)
-        const data = this.getData()
-        post.render(data)
-
         const modal = new ModalComponent(this.parent)
-        modal.render()
+        modal.render(this.close.bind(this), this.txt2)
         this.modalHTML = document.querySelector('.create_main')
-        const btnModal = new ButtonComponent(this.modalHTML)
-        btnModal.render(this.close.bind(this), this.txt2)
-        console.log(this.modalHTML)
 
         const button = new ButtonComponent(this.parent)
         button.render(this.open.bind(this), this.txt)

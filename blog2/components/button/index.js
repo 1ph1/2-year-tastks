@@ -6,7 +6,6 @@ export class ButtonComponent {
     }
 
     addListener(handler){
-        console.log(handler)
         this.ref.addEventListener("click", handler)
     }
 
