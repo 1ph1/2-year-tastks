@@ -3,7 +3,7 @@ const express = require('express')
 const app = express();
 
 app.get('/statistic', function (req, res) {
-    res.end();
+    res.end(JSON.stringify({asd: 123, qwe: 46}));
 });
 
 app.use('/', express.static(`${__dirname}/../frontend`));
