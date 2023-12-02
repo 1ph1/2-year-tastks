@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="./image/favicon.png">
+  <title>The Game</title>
+</head>
+<body>
+  <div class="header">ROCK PAPPER SCISSORS</div>
+
+  <div class="game_statistic">
+    <div class="game_number">
+      <h1 class="number_rounds_h1">Введите сколько раундов вы хотите играть</h1>
+      <div class="number_of_games">
+        <input type="text" class="round_player_choise">
+        <button class="button_settings_close">Играть</button>
+      </div>
+
+      <h1 class="number_rounds_h1">Введите до скольки побед вы хотите играть</h1>
+      <div class="number_of_games">
+        <input type="text" class="game_player_choise">
+        <button class="button_settings_close_games">Играть</button>
+      </div>
+    </div>
+    <div class="score_board">
+      <div class="scores">
+        <div>
+          Computer Score: <h5 class="computer">0</h5>
+          <span class="nickname_player">Player Score:</span> <h5 class="player">0</h5>
+        </div>
+        <button class="send">Отправить статистику</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="game">
+    <div class="items-menu">
+      <img src="./image/rock.png" alt="rock" class="gameItem" id="rock">
+      <img src="./image/scissors.png" alt="scissors" class="gameItem"
+      id="scissors">
+      <img src="./image/paper.png" alt="paper" class="gameItem" id="paper">
+    </div>
+
+    <div class="menu">
+      <div class="play">
+        <div class="winner"></div>
+        <div class="round">start</div>
+      </div>
+      <div class="finish"></div>
+      <button class="restart">Restart game</button>
+    </div>
+  </div>
+
+  <div class="server_part">
+    <div class="nickname_choose">
+      <h1 class="number_rounds_h1">Введите ник игрока</h1>
+      <input type="text" placeholder="" class="nickname">
+      <button class="nickname_change">Применить</button>
+    </div>
+
+    <div class="best_scores">
+      <h1 class="number_rounds_h1">Лучшая статистика</h1>
+      <ol>
+      </ol>
+      <button class="update">Обновить статистику</button>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <a href="https://www.flaticon.com/authors/freepik"
+      title="scissors icons">Icons created by Freepik - Flaticon</a>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
